@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin_manifest xmlns="http://www.elgg.org/plugin_manifest/1.8">
+	<name>Watch my Wall</name>
+	<author>Bortoli German for Keetup Development 2012</author>
+	<version>0.1b</version>
+	<category>bundled</category>
+	<category>node.js</category>
+	<description>Elgg wall updater, using node.js</description>
+	<website>http://www.keetup.com/</website>
+	<copyright>See COPYRIGHT.txt</copyright>
+	<license>GNU General Public License version 2</license>
+	<requires>
+		<type>elgg_release</type>
+		<version>1.8</version>
+	</requires>
+</plugin_manifest>
