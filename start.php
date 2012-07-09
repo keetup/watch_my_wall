@@ -31,6 +31,7 @@ function wmw_push_river($event, $object_type, $object) {
 
     if ($event == 'created' && $object_type == 'river' && $object && $logged_in) {
 
+        //@TODO: Fix why the msg is sending twice
         $elephant = new \ElephantIO\SocketClient(wmp_node_url());
 
         $elephant->init(FALSE);
