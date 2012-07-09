@@ -16,13 +16,6 @@ function wmw_init() {
     elgg_load_js('socket.io');
     elgg_load_js('wmw_main');
 
-    /**
-      $elephant = new \ElephantIO\SocketClient('http://localhost:8080');
-
-      $elephant->init();
-      $elephant->emit('newMessage', array('username' => 'Germanaz0', 'msg' => 'Hola'));
-      $elephant->close();
-     * */
     elgg_register_event_handler('created', 'river', 'wmw_push_river');
 }
 
@@ -31,11 +24,16 @@ function wmw_push_river($event, $object_type, $object) {
 
     if ($event == 'created' && $object_type == 'river' && $object && $logged_in) {
 
-        //@TODO: Fix why the msg is sending twice
+
+        $river_options = array('username' => $logged_in->username,
+            'river_item' => $object,
+            'msg' => elgg_view_river_item($object)
+        );
+
         $elephant = new \ElephantIO\SocketClient(wmp_node_url());
 
         $elephant->init(FALSE);
-        $elephant->emit('newMessage', array('username' => $logged_in->username, 'river_item' => $object, 'msg' => elgg_view_river_item($object)));
+        $elephant->emit('newMessage', $river_options, '');
         $elephant->close();
     }
 }

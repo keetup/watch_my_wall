@@ -17,11 +17,6 @@ NodeJs should send that msg, to every user connected.
 Otherwise, if the river item is for everybody, just display it.
 
 
-#### To Fix
-
-Fix, why elephant is sending twice msgs.
-
-
 ##Visual.
 
 Hide the river items and add a button to count new items.
