@@ -25,10 +25,13 @@ Hide the river items and add a button to count new items.
 ## Installation
 
 $ sudo apt-get install nodejs npm
+
 $ npm socket.io
+
 $ npm express
 
-then run
 
-node nodejs/server.js
+Then run
+
+$ node nodejs/server.js
 
