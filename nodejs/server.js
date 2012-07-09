@@ -4,7 +4,7 @@ server.sockets.on("connection", function(socket)
 {
 
     socket.on("newMessage", function(data){
-                console.log(data);
+        console.log(data);
 
         server.sockets.emit("sendEvent", data);
     });
@@ -12,7 +12,7 @@ server.sockets.on("connection", function(socket)
 
     socket.on('addUser', function(data) {
         
-    });
+        });
 
     socket.on('disconnect', function(data){
         console.log('Server has disconnected');

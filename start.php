@@ -28,10 +28,18 @@ function wmw_init() {
 
 function wmw_push_river($event, $object_type, $object) {
     $logged_in = elgg_get_logged_in_user_entity();
-    
-    $elephant = new \ElephantIO\SocketClient('http://localhost:8080');
 
-    $elephant->init(FALSE);
-    $elephant->emit('newMessage', array('username' => $logged_in->username, 'river_item' => (array) $object,'msg' => elgg_view_river_item($object)));
-    $elephant->close();
+    if ($event == 'created' && $object_type == 'river' && $object && $logged_in) {
+
+        $elephant = new \ElephantIO\SocketClient(wmp_node_url());
+
+        $elephant->init(FALSE);
+        $elephant->emit('newMessage', array('username' => $logged_in->username, 'river_item' => $object, 'msg' => elgg_view_river_item($object)));
+        $elephant->close();
+    }
+}
+
+function wmp_node_url() {
+    $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+    return $protocol . "://" . $_SERVER['HTTP_HOST'] . ':8080';
 }
