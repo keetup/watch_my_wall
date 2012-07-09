@@ -20,3 +20,15 @@ Otherwise, if the river item is for everybody, just display it.
 ##Visual.
 
 Hide the river items and add a button to count new items.
+
+
+## Installation
+
+$ sudo apt-get install nodejs npm
+$ npm socket.io
+$ npm express
+
+then run
+
+node nodejs/server.js
+
