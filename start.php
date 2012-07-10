@@ -30,7 +30,7 @@ function wmw_push_river($event, $object_type, $object) {
             'msg' => elgg_view_river_item($object)
         );
 
-        $elephant = new \ElephantIO\SocketClient(wmp_node_url());
+        $elephant = new SocketClient(wmp_node_url());
 
         $elephant->init(FALSE);
         $elephant->emit('newMessage', $river_options, '');
